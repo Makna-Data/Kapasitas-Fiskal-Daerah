@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Peta Kapasitas Fiskal Daerah 2025</title>
+<meta name="description" content="Cari rasio dan kategori kapasitas fiskal daerah 2025 untuk 38 provinsi dan 508 kabupaten/kota di Indonesia, berdasarkan PMK 97/2025.">
+<link rel="stylesheet" href="vendor/leaflet.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <div>
+    <h1>Peta Kapasitas Fiskal Daerah 2025</h1>
+    <p class="sub">Rasio dan kategori kapasitas fiskal 38 provinsi dan 508 kabupaten/kota · berdasarkan PMK No. 97 Tahun 2025</p>
+  </div>
+  <a class="about-link" href="#tentang">Sumber &amp; catatan</a>
+</header>
+
+<main class="layout">
+  <section class="panel" aria-label="Pilih daerah">
+    <div class="seg" role="tablist" aria-label="Tingkat wilayah">
+      <button role="tab" id="tab-kab" aria-selected="true">Kabupaten/Kota</button>
+      <button role="tab" id="tab-prov" aria-selected="false">Provinsi</button>
+    </div>
+
+    <label class="field">
+      <span>Provinsi</span>
+      <select id="sel-prov"><option value="">Semua provinsi</option></select>
+    </label>
+    <label class="field" id="field-kab">
+      <span>Kabupaten/Kota</span>
+      <select id="sel-kab"><option value="">Pilih kabupaten/kota…</option></select>
+    </label>
+    <div class="field search">
+      <span>atau cari nama</span>
+      <input id="q" type="search" placeholder="mis. Medan, Badung, Jawa Timur" autocomplete="off" aria-autocomplete="list" aria-controls="q-list">
+      <ul id="q-list" role="listbox" hidden></ul>
+    </div>
+
+    <article id="card" class="card empty" aria-live="polite">
+      <p class="hint">Pilih daerah dari daftar, ketik namanya, atau klik langsung di peta.</p>
+    </article>
+
+    <section id="list-wrap" class="list-wrap" hidden>
+      <h3 id="list-title"></h3>
+      <ol id="list" class="rank-list"></ol>
+    </section>
+  </section>
+
+  <section class="map-wrap" aria-label="Peta">
+    <div id="map"></div>
+    <div class="legend" id="legend"></div>
+  </section>
+</main>
+
+<section id="tentang" class="about">
+  <h2>Sumber &amp; catatan</h2>
+  <ul>
+    <li><strong>Sumber data:</strong> Lampiran <a id="src-link" href="#" target="_blank" rel="noopener">Peraturan Menteri Keuangan No. 97 Tahun 2025 tentang Peta Kapasitas Fiskal Daerah</a> (JDIH Kementerian Keuangan).</li>
+    <li><strong>Bukan situs resmi.</strong> Situs ini tidak berafiliasi dengan Kementerian Keuangan atau instansi pemerintah mana pun. Untuk keperluan resmi, rujuk dokumen PMK aslinya.</li>
+    <li><strong>Kategori provinsi dan kabupaten/kota dihitung terpisah.</strong> Rentang rasio tiap kategori berbeda untuk kedua tingkat ini, jadi nilai rasio provinsi tidak bisa dibandingkan langsung dengan nilai rasio kabupaten/kota.</li>
+    <li><strong>Koreksi nama provinsi.</strong> Pada lembar kerja sumber, beberapa kabupaten/kota tercatat di provinsi yang tidak sesuai letaknya. Situs ini memakai provinsi sesuai letak geografis: <span id="koreksi"></span>.</li>
+    <li><strong>DKI Jakarta</strong> tidak memiliki kabupaten/kota otonom, sehingga hanya dinilai di tingkat provinsi.</li>
+    <li><strong>Batas wilayah:</strong> <a href="https://www.geoboundaries.org" target="_blank" rel="noopener">geoBoundaries</a>, disederhanakan untuk tampilan web. Garis batas bersifat ilustratif dan bukan rujukan batas administrasi resmi.</li>
+  </ul>
+</section>
+
+<footer class="foot">Prototipe · data 2025</footer>
+
+<script src="vendor/leaflet.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
